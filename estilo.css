@@ -15,12 +15,12 @@ body {
 }
 
 .breadcrumb {
-	/*centering*/
+	/*centralizando*/
 	display: inline-block;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35);
 	overflow: hidden;
 	border-radius: 5px;
-	/*Lets add the numbers for each link using CSS counters. flag is the name of the counter. to be defined using counter-reset in the parent element of the links*/
+	/*Adicionando numeros via css*/
 	counter-reset: flag; 
 }
 
@@ -32,7 +32,7 @@ body {
 	font-size: 12px;
 	line-height: 36px;
 	color: white;
-	/*need more margin on the left of links to accomodate the numbers*/
+	/*apenas add mais margen a esquerda, para acomodar os numeros*/
 	padding: 0 10px 0 60px;
 	background: #666;
 	background: linear-gradient(#666, #333);
@@ -47,7 +47,7 @@ body {
 	left: 14px;
 }
 .breadcrumb a:last-child {
-	border-radius: 0 5px 5px 0; /*this was to prevent glitches on hover*/
+	border-radius: 0 5px 5px 0; /*previme bugs do hover como serrilhado*/
 	padding-right: 20px;
 }
 
@@ -61,13 +61,12 @@ body {
 	background: linear-gradient(135deg, #333, #000);
 }
 
-/*adding the arrows for the breadcrumbs using rotated pseudo elements*/
+/*Add flechas aos links, utilizando pseudo elementos*/
 .breadcrumb a:after {
 	content: '';
 	position: absolute;
 	top: 0; 
-	right: -18px; /*half of square's length*/
-	/*same dimension as the line-height of .breadcrumb a */
+	right: -18px;
 	width: 36px; 
 	height: 36px;
 	/*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's: 
@@ -79,7 +78,7 @@ body {
 	/*background same as links but the gradient will be rotated to compensate with the transform applied*/
 	background: #666;
 	background: linear-gradient(135deg, #666, #333);
-	/*stylish arrow design using box shadow*/
+	/*estilizando a flecha com uma sombra*/
 	box-shadow: 
 		2px -2px 0 2px rgba(0, 0, 0, 0.4), 
 		3px -3px 0 2px rgba(255, 255, 255, 0.1);
@@ -88,15 +87,14 @@ body {
 		50px - to prevent hover glitches on the border created using shadows*/
 	border-radius: 0 5px 0 50px;
 }
-/*we dont need an arrow after the last link*/
+/*retirando a flecha do ultimo link*/
 .breadcrumb a:last-child:after {
 	content: none;
 }
-/*we will use the :before element to show numbers*/
+
 .breadcrumb a:before {
-	content: counter(flag);
+	content: counter(flag);/*Add os numeros antes de cada link*/
 	counter-increment: flag;
-	/*some styles now*/
 	border-radius: 100%;
 	width: 20px;
 	height: 20px;
@@ -124,10 +122,3 @@ body {
 .flat a:hover:after, .flat a.active:after{
 	background: #9EEB62;
 }
-
-
-
-
-
-
-
